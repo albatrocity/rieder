@@ -13,3 +13,7 @@ This is an HTML5 application, built with
 * Write your code in `app` dir, put scripts in `vendor` dir.
 
 See [Chaplin site](http://chaplinjs.org) for docs and more info.
+
+## Reader
+Chapter 1 of Alice in Wonderland is in `public/book.json`, which is fetched on initialization and
+formatted with marked.js. Currently supports `paragraph`, `heading`, and `image` content types.
