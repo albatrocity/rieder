@@ -10,4 +10,3 @@ module.exports = class PublicationContent extends Chaplin.Collection
       when 'image' then new Image attrs, options
       when 'heading' then new Heading attrs, options
       when 'preformatted' then new Preformatted attrs, options
-  url: '/book.json'

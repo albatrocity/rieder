@@ -2,7 +2,6 @@ View = require 'views/content/base'
 
 module.exports = class ContentView extends View
   autoRender: true
-  className: 'content'
   tagName: ->
     templateFunc = @getTemplateFunction()
     if typeof templateFunc is 'function'
