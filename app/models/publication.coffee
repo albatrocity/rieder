@@ -1,4 +1,5 @@
 Model = require 'models/base/model'
 
 module.exports = class Publication extends Model
-  url: 'book.json'
+  # For testing only
+  url: 'http://localhost:3000/api/publications/3'

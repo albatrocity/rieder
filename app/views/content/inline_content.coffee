@@ -1,17 +1,20 @@
 View = require 'views/content/base'
 
-module.exports = class ContentView extends View
+module.exports = class InlineContentView extends View
   autoRender: true
   tagName: ->
     templateFunc = @getTemplateFunction()
     if typeof templateFunc is 'function'
       html = templateFunc @getTemplateData()
-      return $(html).prop("tagName").toLowerCase()
+      if $(html).length > 0
+        return $(html).prop("tagName").toLowerCase()
+      else
+        return 'span'
   render: ->
     return false if @disposed
     templateFunc = @getTemplateFunction()
     if typeof templateFunc is 'function'
       html = templateFunc @getTemplateData()
-      html = $(html).html() # Get inner HTML
-      @$el.html html        # Set template to inner HTML
+      text = $(html).text() # Get inner HTML
+      @$el.html text        # Set template to inner HTML
     this

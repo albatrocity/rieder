@@ -1,7 +1,7 @@
 template = require 'views/templates/publications/show'
 View = require 'views/base/view'
-PublicationContent = require 'collections/publication_content'
-PublicationContentView = require 'views/publications/content'
+PublicationContents = require 'collections/publication_contents'
+PublicationContentsView = require 'views/publications/contents'
 
 module.exports = class PublicationView extends View
   template: template
@@ -9,10 +9,10 @@ module.exports = class PublicationView extends View
   tagName: 'article'
   initialize: ->
     super
-    @content = new PublicationContent(@model.get('content'))
+    @contents = new PublicationContents(@model.get('contents'))
   render: ->
     super
-    @content_view = new PublicationContentView
-      collection: @content
+    @contents_view = new PublicationContentsView
+      collection: @contents
       el: @$el.find('#publication_content')
-    @subview('content', @content_view)
+    @subview('content', @contents_view)

@@ -5,16 +5,16 @@ ImageView = require 'views/content/image_view'
 HeadingView = require 'views/content/heading_view'
 PreformattedView = require 'views/content/preformatted_view'
 
-module.exports = class PublicationContentView extends View
+module.exports = class PublicationContentsView extends View
   animationDuration: 0
   tagName: 'section'
   initItemView: (model) ->
     switch model.get 'content_type'
-      when 'paragraph'
+      when 0
         return new ParagraphView model: model
-      when 'image'
-        return new ImageView model: model
-      when 'heading'
+      when 1
         return new HeadingView model: model
-      when 'preformatted'
+      when 2
+        return new ImageView model: model
+      when 3
         return new PreformattedView model: model
