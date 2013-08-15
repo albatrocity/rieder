@@ -7,9 +7,9 @@ module.exports = class PublicationView extends View
   template: template
   autoRender: true
   tagName: 'article'
-  initialize: ->
+  initialize: (options) ->
+    @contents = options.contents
     super
-    @contents = new PublicationContents(@model.get('contents'))
   render: ->
     super
     @contents_view = new PublicationContentsView
